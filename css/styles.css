@@ -336,9 +336,9 @@ a {
     border-width: 9.5px 0 9.5px 17px;
     border-color: transparent transparent transparent rgba(255, 255, 255, 1);
 }
-@media screen and (min-width:0\0) {
-    /* IE9 and IE10 rule sets go here */
-    body{
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+/* IE10+ CSS styles go here */
+    #sample-textbox{
         position: absolute;
         left: 500px;
     }
