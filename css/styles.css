@@ -339,6 +339,7 @@ a {
 @media screen and (min-width:0\0) {
     /* IE9 and IE10 rule sets go here */
     body{
+        position: absolute;
         left: 500px;
     }
 }
