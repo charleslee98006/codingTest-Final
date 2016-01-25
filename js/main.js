@@ -54,7 +54,6 @@ function transitVid(){
 	$( "#jp_container_1" ).css({"width":"800px", "height":"575px","background":"none", "margin":"10px", "top":"100px"});
 	if (navigator.appVersion.indexOf("MSIE 10") !== -1){
     		$( "#jp_container_1" ).css({"width":"800px", "height":"575px","background":"none", "margin":"10px", "top":"100px", "left":"100px"});
-    		$( "#sample-textbox" ).css({"left":"100px"});
 	}
 	});
 	$('#skipPlayer').fadeOut(500);
