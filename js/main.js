@@ -1,6 +1,11 @@
 var content;
 var tosButton=false;
 $( document ).ready(function() {
+
+	setTimeout(function(){
+        $('body').addClass('loaded');
+    }, 1000);
+
 	buildPage();
 
 	$('#skipPlayer').hide();

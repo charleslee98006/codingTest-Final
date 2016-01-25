@@ -21,6 +21,121 @@ body{
 a {
     text-decoration: none;
 }
+
+#loader-wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1000;
+}
+#loader {
+    display: block;
+    position: relative;
+    left: 50%;
+    top: 50%;
+    width: 150px;
+    height: 150px;
+    margin: -75px 0 0 -75px;
+    border-radius: 50%;
+    border: 3px solid transparent;
+    border-top-color: white;
+
+    -webkit-animation: spin 2s linear infinite; /* Chrome, Opera 15+, Safari 5+ */
+    animation: spin 2s linear infinite; /* Chrome, Firefox 16+, IE 10+, Opera */
+    z-index: 1001;
+}
+
+    #loader:before {
+        content: "";
+        position: absolute;
+        top: 5px;
+        left: 5px;
+        right: 5px;
+        bottom: 5px;
+        border-radius: 50%;
+        border: 3px solid transparent;
+        border-top-color: white;
+
+        -webkit-animation: spin 3s linear infinite; /* Chrome, Opera 15+, Safari 5+ */
+        animation: spin 3s linear infinite; /* Chrome, Firefox 16+, IE 10+, Opera */
+    }
+
+    #loader:after {
+        content: "";
+        position: absolute;
+        top: 15px;
+        left: 15px;
+        right: 15px;
+        bottom: 15px;
+        border-radius: 50%;
+        border: 3px solid transparent;
+        border-top-color: white;
+
+        -webkit-animation: spin 1.5s linear infinite; /* Chrome, Opera 15+, Safari 5+ */
+          animation: spin 1.5s linear infinite; /* Chrome, Firefox 16+, IE 10+, Opera */
+    }
+
+    @-webkit-keyframes spin {
+        0%   { 
+            -webkit-transform: rotate(0deg);  /* Chrome, Opera 15+, Safari 3.1+ */
+            -ms-transform: rotate(0deg);  /* IE 9 */
+            transform: rotate(0deg);  /* Firefox 16+, IE 10+, Opera */
+        }
+        100% {
+            -webkit-transform: rotate(360deg);  /* Chrome, Opera 15+, Safari 3.1+ */
+            -ms-transform: rotate(360deg);  /* IE 9 */
+            transform: rotate(360deg);  /* Firefox 16+, IE 10+, Opera */
+        }
+    }
+    @keyframes spin {
+        0%   { 
+            -webkit-transform: rotate(0deg);  /* Chrome, Opera 15+, Safari 3.1+ */
+            -ms-transform: rotate(0deg);  /* IE 9 */
+            transform: rotate(0deg);  /* Firefox 16+, IE 10+, Opera */
+        }
+        100% {
+            -webkit-transform: rotate(360deg);  /* Chrome, Opera 15+, Safari 3.1+ */
+            -ms-transform: rotate(360deg);  /* IE 9 */
+            transform: rotate(360deg);  /* Firefox 16+, IE 10+, Opera */
+        }
+    }
+
+    #loader-wrapper .loader-section {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background: #222;
+        z-index: 1000;
+    }
+    /* Loaded styles */
+    .loaded #loader-wrapper {
+    -webkit-transition: opacity 3s ease-in-out;
+    -moz-transition: opacity 3s ease-in-out;
+    -ms-transition: opacity 3s ease-in-out;
+    -o-transition: opacity 3s ease-in-out;
+     opacity: 1;
+
+
+    }
+/*    .loaded #loader-wrapper .loader-section.section-right {
+
+    }*/
+    .loaded #loader {
+        opacity: 0;
+        -webkit-transition: all 1s ease-out;  /* Android 2.1+, Chrome 1-25, iOS 3.2-6.1, Safari 3.2-6  */
+                transition: all 1s ease-out;  /* Chrome 26, Firefox 16+, iOS 7+, IE 10+, Opera, Safari 6.1+  */
+
+    }
+    .loaded #loader-wrapper {
+        visibility: hidden;
+                -webkit-transition: all 3s ease-out;  /* Android 2.1+, Chrome 1-25, iOS 3.2-6.1, Safari 3.2-6  */
+                transition: all 3s ease-out;  /* Chrome 26, Firefox 16+, iOS 7+, IE 10+, Opera, Safari 6.1+  */
+    }
+
+
 #container{
     width: 100%;
 }
@@ -71,21 +186,21 @@ a {
 /*.jp-stop{
 	position:absolute;
 }*/
-.jp-video-270p {
+/*.jp-video-270p {
     width: 100%;
-}
-.jp-title h1 {
+}*/
+/*.jp-title h1 {
 	font-size: 1em;
 	text-align: center;
 	color: #555;
-}
-.jp-video-play {
+}*/
+/*.jp-video-play {
     font-family: "FontAwesome";
     position: absolute;
     top: 45%;
     left: 46%;
-}
-.jp-video-play a {
+}*/
+/*.jp-video-play a {
     font-size: 2em;
     color: rgba(255,255,255,.7);
     display: inline-block;
@@ -95,7 +210,7 @@ a {
     text-align: center;
     background-color: rgba(0,0,0,.8);
     border-radius: 5px;
-}
+}*/
 .jp-interface {
     width:100%;
 /*    bottom:0;*/
@@ -120,7 +235,6 @@ a {
 .jp-controls, .jp-toggles {
     padding: 0;
     margin: 0; 
-    font-family: "FontAwesome"
 }
 .jp-toggles {
     position: absolute;
@@ -137,10 +251,7 @@ a {
     text-align: center;
 
 }
-.jp-play{
-
-}
-.jp-mute,.jp-unmute {
+/*.jp-mute,.jp-unmute {
     position: absolute;
     right: 85px;
     top: 0;
@@ -148,7 +259,7 @@ a {
     height: 40px;
     display: inline-block;
     line-height: 43px;
-}
+}*/
 .jp-progress {
     background-color: #992E18;
     overflow: hidden;
@@ -199,54 +310,6 @@ a {
     position:relative;
 }
 /* The z-index rule is defined in this manner to enable Popcorn plugins that add overlays to video area. EG. Subtitles. */
-.jp-video-full div div {
-    z-index:1000;
-}
-.jp-video-full .jp-jplayer {
-    top: 0;
-    left: 0;
-    position: fixed !important; 
-    position: relative; /* Rules for IE6 (full-screen) */
-    overflow: hidden;
-}
-.jp-video-full .jp-interface {
-    position: absolute !important;
-    position: relative; /* Rules for IE6 (full-screen) */
-    bottom: 0;
-    left: 0;
-}
-.jp-video-full .jp-gui {
-    position: fixed !important; 
-    position: static; /* Rules for IE6 (full-screen) */
-    top: 0;
-    left: 0;
-    width:100%;
-    height:100%;
-    z-index:1001; /* 1 layer above the others. */
-}
- 
-.jp-video-full .jp-video-play a {
-    font-size: 3em;
-    height: 80px;
-    width: 80px;
-    line-height: 95px;
-}
-.jp-video-full .jp-progress {
-    width: 83%;
-}
-.jp-interface >.jp-controls-holder li >.jp-play{
-
-/*		    margin:0 auto;
- 	width: 0;
-	height: 0;
-	border-top: 25px solid transparent;
-	border-left: 50px solid white;
-	border-bottom: 25px solid transparent;*/
-}
-/*.jp-pause, .jp-play{	
-	position: absolute;
-
-}*/
 .jp-play, .jp-pause{
     height: 40px;
     width: 65px;    
@@ -288,27 +351,6 @@ a {
 #tos-button:hover{
 	background:gray;
 }
-/*.jp-play:after, {
-    content: "";
-    display: block;
-    position: absolute;
-    top: 10.5px;
-    left: 24px;
-    margin: 0 auto;
-    border-style: solid;
-    border-width: 9.5px 0 9.5px 17px;
-    border-color: transparent transparent transparent rgba(255, 255, 255, 1);
-}*/
-/*.jp-pause:after{
-	    content: "";
-    display: block;
-    position: absolute;
-    top: 10.5px;
-    left: 24px;
-    margin: 0 auto;
-    text-align: center;
-
-}*/
 #pause-icon{
 	border-color: white;
 	position: absolute;
@@ -330,20 +372,3 @@ a {
     border-width: 9.5px 0 9.5px 17px;
     border-color: transparent transparent transparent rgba(255, 255, 255, 1);
 }
-@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
-/* IE10+ CSS styles go here */
-/*    #sample-textbox{
-        position: absolute;
-        left: 50%;
-    }
-    #jp_container_1{
-        position: absolute;
-        left: 50%;
-    }*/
-}
-
-/*.jp-video-270p .jp-type-single {
-    -webkit-box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.5);
-    -moz-box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.5);
-    box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.5);
-}*/
