@@ -17,6 +17,7 @@ function buildPage(){
 		content = json;
 		console.log(content);
 		console.log(content[0]);
+		$("html").css({"background": "url(" + content[0].preload.backgroundImg+ ") no-repeat center center fixed"});
 		$("#sample-textbox h1").text(content[0].intro.h1);
 		$("#sample-textbox p").text(content[0].intro.p);
 		$("#tos-button").text(content[0].ToS.button);
@@ -86,16 +87,17 @@ function tosClicked(){
 	$('#tos-button').click(function(){
 		tosButton =!tosButton;
 		if(tosButton){
-			$("#sample-textbox h1").text(content[0].ToS.h1);
-			$("#sample-textbox p").text(content[0].ToS.p);
-			$("#tos-button").text(content[0].ToS.button2);
+			$("#sample-textbox h1").html(content[0].ToS.h1);
+			$("#sample-textbox p").html(content[0].ToS.p);
+			$("#tos-button").html(content[0].ToS.button2);
 		}
 		else{
-			$("#sample-textbox h1").text(content[0].intro.h1);
-			$("#sample-textbox p").text(content[0].intro.p);
-			$("#tos-button").text(content[0].intro.button);
+			$("#sample-textbox h1").html(content[0].intro.h1)
+			$("#sample-textbox p").html(content[0].intro.p);
+			$("#tos-button").html(content[0].intro.button);
 
 		}
+		
 	});
 }
 function buildBgMusic(){

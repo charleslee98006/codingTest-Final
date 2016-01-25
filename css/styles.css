@@ -1,17 +1,9 @@
 html{
 	font-family: Arial,Helvetica,Helvetica,sans-serif;
-	background:url(../images/1920x1080_wallpaper.jpg) no-repeat center center fixed;
+/*	background:url(../images/1920x1080_wallpaper.jpg) no-repeat center center fixed;*/
 	background-size: cover;
+    overflow: hidden;
 }
-/*video{  
-	position: fixed; 
-	right: 0; 
-	bottom: 0; 
-	min-width: 100%; 
-	min-height: 100%; 
-	width: auto; 
-	height: auto; 
-}*/
 body{
 	width:100%;
 	margin:0px;
