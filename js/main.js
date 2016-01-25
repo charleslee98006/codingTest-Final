@@ -51,7 +51,11 @@ function skipClick(){
 }
 function transitVid(){
 	$( ".jp-video" ).fadeOut( "slow", function(){
-		$( "#jp_container_1" ).css({"width":"800px", "height":"575px","background":"none", "margin":"10px", "top":"100px", "left": "100px"});
+	$( "#jp_container_1" ).css({"width":"800px", "height":"575px","background":"none", "margin":"10px", "top":"100px"});
+	if (navigator.appVersion.indexOf("MSIE 10") !== -1){
+    		$( "#jp_container_1" ).css({"width":"800px", "height":"575px","background":"none", "margin":"10px", "top":"100px", "left":"100px"});
+    		$( "#sample-textbox" ).css({"left":"100px"});
+	}
 	});
 	$('#skipPlayer').fadeOut(500);
 	$('#skipPlayer').hide();
