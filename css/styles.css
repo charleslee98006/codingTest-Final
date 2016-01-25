@@ -8,8 +8,11 @@ body{
 	margin:0px;
 }
 a {
-    text-decoration: none;
+  position: relative;
+  color: white;
+  text-decoration: none;
 }
+/*Loading animation prior as the browsers set up the experience.*/
 #loader-wrapper {
     position: fixed;
     top: 0;
@@ -29,12 +32,10 @@ a {
     border-radius: 50%;
     border: 3px solid transparent;
     border-top-color: white;
-
     -webkit-animation: spin 2s linear infinite; /* Chrome, Opera 15+, Safari 5+ */
     animation: spin 2s linear infinite; /* Chrome, Firefox 16+, IE 10+, Opera */
     z-index: 1001;
 }
-
 #loader:before {
     content: "";
     position: absolute;
@@ -45,11 +46,9 @@ a {
     border-radius: 50%;
     border: 3px solid transparent;
     border-top-color: white;
-
     -webkit-animation: spin 3s linear infinite; /* Chrome, Opera 15+, Safari 5+ */
     animation: spin 3s linear infinite; /* Chrome, Firefox 16+, IE 10+, Opera */
 }
-
 #loader:after {
     content: "";
     position: absolute;
@@ -64,7 +63,7 @@ a {
     -webkit-animation: spin 1.5s linear infinite; /* Chrome, Opera 15+, Safari 5+ */
     animation: spin 1.5s linear infinite; /* Chrome, Firefox 16+, IE 10+, Opera */
 }
-
+/*css that handles the actual rotation of the loader animation*/
 @-webkit-keyframes spin {
     0%   { 
         -webkit-transform: rotate(0deg);  /* Chrome, Opera 15+, Safari 3.1+ */
@@ -89,7 +88,6 @@ a {
         transform: rotate(360deg);  /* Firefox 16+, IE 10+, Opera */
     }
 }
-
 #loader-wrapper .loader-section {
     position: fixed;
     top: 0;
@@ -105,8 +103,6 @@ a {
     -ms-transition: opacity 3s ease-in-out;
     -o-transition: opacity 3s ease-in-out;
     opacity: 1;
-
-
 }
 .loaded #loader {
     opacity: 0;
@@ -131,14 +127,10 @@ a {
 #skipPlayer:hover{
 	color:gray;
 }
-a {
-  position: relative;
-  color: white;
-  text-decoration: none;
-}
 #skipPlayer a:hover {
   color: white;
 }
+/*Css that underlines the skip button to for user to notice it. */
 #skipPlayer a:before {
   content: "";
   position: absolute;
@@ -164,7 +156,6 @@ a {
     font-family: Arial, sans-serif;
     background: black;
 }
-
 .jp-interface {
     width:100%;
     /*    bottom:0;*/
@@ -181,7 +172,6 @@ a {
     -webkit-box-shadow: inset 0px 1px 0px 0px rgba(255, 255, 255, 0.1);
     box-shadow: inset 0px 1px 0px 0px rgba(255, 255, 255, 0.1); 
 }
-
 .jp-interface a {
     color: #fff;
     text-shadow: 1px 1px 0 rgba(0,0,0,0.3);
@@ -204,6 +194,7 @@ a {
     display: inline-block;
     text-align: center;
 }
+/*The tracker of the video progress.*/
 .jp-progress {
     background-color: #992E18;
     overflow: hidden;
@@ -235,11 +226,11 @@ a {
     position: absolute;
     top: 48%;
     left: 48%;
-
 }
 .jp-play:hover, .jp-pause:hover {
     background-color: #992E18;
 }
+/*Css template for the filler text.*/
 #sample-textbox{
 	padding: 25px;
 	display: block;
@@ -252,7 +243,7 @@ a {
 	position:absolute;
 	opacity: 0.7;
 }
-
+/*The css design of the Terms of Service  button.*/
 #tos-button{
 	background:black;
 	color: white;
@@ -268,6 +259,7 @@ a {
 #tos-button:hover{
 	background:gray;
 }
+/*The css design of the pause icon */
 #pause-icon{
 	border-color: white;
 	position: absolute;
@@ -278,6 +270,7 @@ a {
     top: 11px;
     left: 21px;
 }
+/*The css design of the play icon */
 #play-icon{
     content: "";
     display: block;

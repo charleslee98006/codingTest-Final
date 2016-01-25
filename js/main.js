@@ -1,5 +1,7 @@
 var content;
 var tosButton=false;
+
+// jQuery's main function handler.
 $( document ).ready(function() {
 	setTimeout(function(){
         $('body').addClass('loaded');
@@ -14,6 +16,7 @@ $( document ).ready(function() {
 	tosClicked();
 });
 
+// A function that build the components of the page and loads the JSON data.
 function buildPage(){
 	$.getJSON("https://raw.githubusercontent.com/charleslee98006/CodingTestJSON/master/content.json", function(json) {
 		content = json;
@@ -30,12 +33,12 @@ function buildPage(){
 	});
 };
 
+// A function that build the jQuery video and audio plugin called - jPlayer .
 function buildPlayer(){
       $("#jquery_jplayer_1").jPlayer({
         ready: function () {
           $(this).jPlayer("setMedia", {
             m4v: content[0].preload.video,
-            // poster: "images/sample.png"
           }).jPlayer("play");
         },
         swfPath: "/js",
@@ -53,12 +56,15 @@ function buildPlayer(){
       });
 }
 
+//function that transitions to the main page when user clicks on the skip button.
 function skipClick(){
 	$('#skipPlayer').click(function(){
 		transitVid();
 	});
 }
 
+//function that changes the video player from full screen and allow other content to appear on the browser. Also,
+//handles IE10 size difference. The background music  component starts to play.
 function transitVid(){
 	$( ".jp-video" ).fadeOut( "slow", function(){
 	if (navigator.appVersion.indexOf("MSIE 10") !== -1){
@@ -79,6 +85,7 @@ function transitVid(){
     $('audio').trigger("play");
 }
 
+//function that changes the video into full screen when the user clicks on the repeat. The background music pauses.
 function repeat(){
 	$('.jp-play').click(function(){
 		$('audio').trigger("pause");
@@ -91,6 +98,7 @@ function repeat(){
 	});
 }
 
+//function that handles the Terms of Service (ToS) and changes the texts back and forth between ToS and  intro filler text.
 function tosClicked(){
 	$('#tos-button').click(function(){
 		tosButton =!tosButton;
@@ -107,26 +115,22 @@ function tosClicked(){
 	});
 }
 
+//function that builds the html audio component
 function buildBgMusic(){
-	    // Create an audio element, and set it to autoplay, 
-   // and show the player when the page loads.
+	// Create an audio element, and set it to autoplay, 
+	// and show the player when the page loads.
     var audio = $('<audio />', {
-      // autoPlay : 'autoplay',
+      autoPlay : 'autoplay',
       controls : 'controls',
       loop: 'loop'
     });
-     
-    // Call our addSource function, and pass in the audio element
-    // and the path(s) to your audio.
-    // addSource(audio, 'audioFile.ogg');
-
     audio.appendTo('body'); 
-
     addSource(audio, content[0].preload.bgMusic);
     $('audio').prop("volume", 0.25);
     $('audio').hide();
 }
 
+//function that appends the audio source to the HTML5 audio component.
 function addSource(elem, path) {
 	$('<source />').attr('src', path).appendTo(elem);
 }
