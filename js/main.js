@@ -54,7 +54,7 @@ function transitVid(){
 	if (navigator.appVersion.indexOf("MSIE 10") !== -1){
     	$( "#container" ).css({"width":"800px", "height":"575px","background":"none", "margin":"100px 50px"});
     	$("#sample-textbox").css({"top":"100px", "left":"875px"});
-    	// $("#tos-button").css({"top":"610px", "left":"1240px"});
+    	$("#tos-button").css({"top":"550px", "left":"1160px"});
 	}
 	else{
 		$( "#jp_container_1" ).css({"width":"800px", "height":"575px","background":"none", "margin":"10px", "top":"100px"});
