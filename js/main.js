@@ -4,13 +4,13 @@ var tosButton=false;
 // jQuery's main function handler.
 $( document ).ready(function() {
 	setTimeout(function(){
-        $('body').addClass('loaded');
+        $("body").addClass("loaded");
     }, 1000);
 	buildPage();
-	$('#skipPlayer').hide();
-	$('#sample-textbox').hide();
-	$('#tos-button').hide();
-	$('#skipPlayer').delay(6000).fadeIn(2000);
+	$("#skipPlayer").hide();
+	$("#sample-textbox").hide();
+	$("#tos-button").hide();
+	$("#skipPlayer").delay(6000).fadeIn(2000);
 	skipClick();
 	repeat();
 	tosClicked();
@@ -22,12 +22,12 @@ function buildPage(){
 		content = json;
 		console.log(content);
 		console.log(content[0]);
-		$('title').text(content[0].preload.title);
+		$("title").text(content[0].preload.title);
 		$("html").css({"background": "url(" + content[0].preload.backgroundImg+ ") no-repeat center center fixed"});
 		$("#sample-textbox h1").text(content[0].intro.h1);
 		$("#sample-textbox p").text(content[0].intro.p);
 		$("#tos-button").text(content[0].ToS.button);
-		$('#skipPlayer a').text(content[0].preload.skip);
+		$("#skipPlayer a").text(content[0].preload.skip);
 		buildBgMusic();
 		buildPlayer();
 	});
@@ -58,7 +58,7 @@ function buildPlayer(){
 
 //function that transitions to the main page when user clicks on the skip button.
 function skipClick(){
-	$('#skipPlayer').click(function(){
+	$("#skipPlayer").click(function(){
 		transitVid();
 	});
 }
@@ -76,25 +76,25 @@ function transitVid(){
 		$( "#container" ).css({"width":"800px", "height":"575px","background":"none", "margin":"100px 50px"});
 	}
 	});
-	$('#skipPlayer').fadeOut(500);
-	$('#skipPlayer').hide();
+	$("#skipPlayer").fadeOut(500);
+	$("#skipPlayer").hide();
     $( ".jp-video" ).fadeIn( 1000);
-    $('#sample-textbox').fadeIn(1500);
-    $('#tos-button').fadeIn(1500);
+    $("#sample-textbox").fadeIn(1500);
+    $("#tos-button").fadeIn(1500);
     $(".jp-progress").hide();
-    $('audio').trigger("play");
+    $("audio").trigger("play");
 }
 
 //function that changes the video into full screen when the user clicks on the repeat. The background music pauses.
 function repeat(){
-	$('.jp-play').click(function(){
-		$('audio').trigger("pause");
+	$(".jp-play").click(function(){
+		$("audio").trigger("pause");
 		$( "#container" ).css({"width":"100%", "height":"100%","background":"black", "margin":"0 auto", "top":"0", "left":"0"});
 		$(".jp-progress").show();
-		$('#sample-textbox').fadeOut(500);
-		$('#sample-textbox').hide();
-		$('#tos-button').hide();
-		$('#skipPlayer').delay(5000).fadeIn(1000);
+		$("#sample-textbox").fadeOut(500);
+		$("#sample-textbox").hide();
+		$("#tos-button").hide();
+		$("#skipPlayer").delay(5000).fadeIn(1000);
 	});
 }
 
@@ -119,18 +119,25 @@ function tosClicked(){
 function buildBgMusic(){
 	// Create an audio element, and set it to autoplay, 
 	// and show the player when the page loads.
-    var audio = $('<audio />', {
-      autoPlay : 'autoplay',
-      controls : 'controls',
-      loop: 'loop'
+    var audio = $("<audio />", {
+      autoPlay : "autoplay",
+      controls : "controls",
+      loop: "loop"
     });
-    audio.appendTo('body'); 
+    audio.appendTo("body"); 
     addSource(audio, content[0].preload.bgMusic);
-    $('audio').prop("volume", 0.25);
-    $('audio').hide();
+    $("audio").prop("volume", 0.25);
+    $("audio").hide();
 }
 
 //function that appends the audio source to the HTML5 audio component.
 function addSource(elem, path) {
-	$('<source />').attr('src', path).appendTo(elem);
+	$("<source />").attr("src", path).appendTo(elem);
+}
+//function that adds text to the Flash out of date error message.
+function buildFlashError(){
+	$(".jp-no-solution span").text(content[0].error.title);
+	$(".jp-no-solution p").text(content[0].error.p);
+	$(".jp-no-solution a").text(content[0].error.a);
+
 }
