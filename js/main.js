@@ -1,9 +1,8 @@
 var content;
 var tosButton=false;
-var vidFinished=true;
 $( document ).ready(function() {
 	buildPage();
-	buildPlayer();
+
 	$('#skipPlayer').hide();
 	$('#sample-textbox').hide();
 	$('#tos-button').hide();
@@ -17,17 +16,21 @@ function buildPage(){
 	$.getJSON("https://raw.githubusercontent.com/charleslee98006/CodingTestJSON/master/content.json", function(json) {
 		content = json;
 		console.log(content);
-		$("#sample-textbox h1").text(content[2].intro[0].h1);
-		$("#sample-textbox p").text(content[2].intro[1].p);
+		console.log(content[0]);
+		$("#sample-textbox h1").text(content[0].intro.h1);
+		$("#sample-textbox p").text(content[0].intro.p);
+		$("#tos-button").text(content[0].ToS.button);
+		buildBgMusic();
+		buildPlayer();
 	});
-	buildBgMusic();
+
 };	
 function buildPlayer(){
       $("#jquery_jplayer_1").jPlayer({
         ready: function () {
           $(this).jPlayer("setMedia", {
-            m4v: "vid/sampleMassEffect.mp4",
-            poster: "images/sample.png"
+            m4v: content[0].preload.video,
+            // poster: "images/sample.png"
           }).jPlayer("play");
         },
         swfPath: "/js",
@@ -36,9 +39,9 @@ function buildPlayer(){
           width: "100%",
           height: "100%"
         },
-        autohide:{
-        	restored: true, fadeIn:500,
-        },
+        // autohide:{
+        // 	restored: true, fadeIn:500,
+        // },
         ended: function() {
 			transitVid();
         }
@@ -57,7 +60,7 @@ function transitVid(){
     	$("#tos-button").css({"top":"550px", "left":"1160px"});
 	}
 	else{
-		$( "#jp_container_1" ).css({"width":"800px", "height":"575px","background":"none", "margin":"10px", "top":"100px"});
+		$( "#container" ).css({"width":"800px", "height":"575px","background":"none", "margin":"100px 50px"});
 	}
 	});
 	$('#skipPlayer').fadeOut(500);
@@ -83,14 +86,14 @@ function tosClicked(){
 	$('#tos-button').click(function(){
 		tosButton =!tosButton;
 		if(tosButton){
-			$("#sample-textbox h1").text(content[3].ToS[0].h1);
-			$("#sample-textbox p").text(content[3].ToS[1].p);
-			$("#tos-button").text(content[3].ToS[2].button);
+			$("#sample-textbox h1").text(content[0].ToS.h1);
+			$("#sample-textbox p").text(content[0].ToS.p);
+			$("#tos-button").text(content[0].ToS.button2);
 		}
 		else{
-			$("#sample-textbox h1").text(content[2].intro[0].h1);
-			$("#sample-textbox p").text(content[2].intro[1].p);
-			$("#tos-button").text(content[2].intro[2].button);
+			$("#sample-textbox h1").text(content[0].intro.h1);
+			$("#sample-textbox p").text(content[0].intro.p);
+			$("#tos-button").text(content[0].intro.button);
 
 		}
 	});
@@ -110,7 +113,7 @@ function buildBgMusic(){
 
     audio.appendTo('body'); 
 
-    addSource(audio, './sound/bgmusic.mp3');
+    addSource(audio, content[0].preload.bgMusic);
     $('audio').prop("volume", 0.25);
     $('audio').hide();
 }
