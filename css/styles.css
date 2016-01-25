@@ -338,9 +338,13 @@ a {
 }
 @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
 /* IE10+ CSS styles go here */
-    #sample-textbox, #jp_container_1{
+    #sample-textbox{
         position: absolute;
         left: 50%;
+    }
+    #jp_container_1{
+        position: absolute;
+        left: 200px;
     }
 }
 
