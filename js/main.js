@@ -11,7 +11,7 @@ $( document ).ready(function() {
 	$('#skipPlayer').hide();
 	$('#sample-textbox').hide();
 	$('#tos-button').hide();
-	$('#skipPlayer').delay(5000).fadeIn(1000);
+	$('#skipPlayer').delay(6000).fadeIn(2000);
 	skipClick();
 	repeat();
 	tosClicked();
@@ -45,9 +45,9 @@ function buildPlayer(){
           width: "100%",
           height: "100%"
         },
-        // autohide:{
-        // 	restored: true, fadeIn:500,
-        // },
+        autohide:{
+        	restored: true, fadeIn:500,
+        },
         ended: function() {
 			transitVid();
         }

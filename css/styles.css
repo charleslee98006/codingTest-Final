@@ -1,27 +1,15 @@
 html{
 	font-family: Arial,Helvetica,Helvetica,sans-serif;
-/*	background:url(../images/1920x1080_wallpaper.jpg) no-repeat center center fixed;*/
-	background-size: cover;
+    background-size: cover;
     overflow: hidden;
 }
 body{
 	width:100%;
 	margin:0px;
 }
-/*@font-face {
-  font-family: "FontAwesome";
-  src: url('fonts/fontawesome-webfont.eot');
-  src: url('fonts/fontawesome-webfont.eot?#iefix') format('eot'),
-       url('fonts/fontawesome-webfont.woff') format('woff'), 
-       url('fonts/fontawesome-webfont.ttf') format('truetype'), 
-       url('fonts/fontawesome-webfont.svg#FontAwesome') format('svg');
-  font-weight: normal;
-  font-style: normal;
-}*/
 a {
     text-decoration: none;
 }
-
 #loader-wrapper {
     position: fixed;
     top: 0;
@@ -47,104 +35,98 @@ a {
     z-index: 1001;
 }
 
-    #loader:before {
-        content: "";
-        position: absolute;
-        top: 5px;
-        left: 5px;
-        right: 5px;
-        bottom: 5px;
-        border-radius: 50%;
-        border: 3px solid transparent;
-        border-top-color: white;
+#loader:before {
+    content: "";
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    right: 5px;
+    bottom: 5px;
+    border-radius: 50%;
+    border: 3px solid transparent;
+    border-top-color: white;
 
-        -webkit-animation: spin 3s linear infinite; /* Chrome, Opera 15+, Safari 5+ */
-        animation: spin 3s linear infinite; /* Chrome, Firefox 16+, IE 10+, Opera */
-    }
+    -webkit-animation: spin 3s linear infinite; /* Chrome, Opera 15+, Safari 5+ */
+    animation: spin 3s linear infinite; /* Chrome, Firefox 16+, IE 10+, Opera */
+}
 
-    #loader:after {
-        content: "";
-        position: absolute;
-        top: 15px;
-        left: 15px;
-        right: 15px;
-        bottom: 15px;
-        border-radius: 50%;
-        border: 3px solid transparent;
-        border-top-color: white;
+#loader:after {
+    content: "";
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    right: 15px;
+    bottom: 15px;
+    border-radius: 50%;
+    border: 3px solid transparent;
+    border-top-color: white;
 
-        -webkit-animation: spin 1.5s linear infinite; /* Chrome, Opera 15+, Safari 5+ */
-          animation: spin 1.5s linear infinite; /* Chrome, Firefox 16+, IE 10+, Opera */
-    }
+    -webkit-animation: spin 1.5s linear infinite; /* Chrome, Opera 15+, Safari 5+ */
+    animation: spin 1.5s linear infinite; /* Chrome, Firefox 16+, IE 10+, Opera */
+}
 
-    @-webkit-keyframes spin {
-        0%   { 
-            -webkit-transform: rotate(0deg);  /* Chrome, Opera 15+, Safari 3.1+ */
-            -ms-transform: rotate(0deg);  /* IE 9 */
-            transform: rotate(0deg);  /* Firefox 16+, IE 10+, Opera */
-        }
-        100% {
-            -webkit-transform: rotate(360deg);  /* Chrome, Opera 15+, Safari 3.1+ */
-            -ms-transform: rotate(360deg);  /* IE 9 */
-            transform: rotate(360deg);  /* Firefox 16+, IE 10+, Opera */
-        }
+@-webkit-keyframes spin {
+    0%   { 
+        -webkit-transform: rotate(0deg);  /* Chrome, Opera 15+, Safari 3.1+ */
+        -ms-transform: rotate(0deg);  /* IE 9 */
+        transform: rotate(0deg);  /* Firefox 16+, IE 10+, Opera */
     }
-    @keyframes spin {
-        0%   { 
-            -webkit-transform: rotate(0deg);  /* Chrome, Opera 15+, Safari 3.1+ */
-            -ms-transform: rotate(0deg);  /* IE 9 */
-            transform: rotate(0deg);  /* Firefox 16+, IE 10+, Opera */
-        }
-        100% {
-            -webkit-transform: rotate(360deg);  /* Chrome, Opera 15+, Safari 3.1+ */
-            -ms-transform: rotate(360deg);  /* IE 9 */
-            transform: rotate(360deg);  /* Firefox 16+, IE 10+, Opera */
-        }
+    100% {
+        -webkit-transform: rotate(360deg);  /* Chrome, Opera 15+, Safari 3.1+ */
+        -ms-transform: rotate(360deg);  /* IE 9 */
+        transform: rotate(360deg);  /* Firefox 16+, IE 10+, Opera */
     }
+}
+@keyframes spin {
+    0%   { 
+        -webkit-transform: rotate(0deg);  /* Chrome, Opera 15+, Safari 3.1+ */
+        -ms-transform: rotate(0deg);  /* IE 9 */
+        transform: rotate(0deg);  /* Firefox 16+, IE 10+, Opera */
+    }
+    100% {
+        -webkit-transform: rotate(360deg);  /* Chrome, Opera 15+, Safari 3.1+ */
+        -ms-transform: rotate(360deg);  /* IE 9 */
+        transform: rotate(360deg);  /* Firefox 16+, IE 10+, Opera */
+    }
+}
 
-    #loader-wrapper .loader-section {
-        position: fixed;
-        top: 0;
-        width: 100%;
-        height: 100%;
-        background: #222;
-        z-index: 1000;
-    }
-    /* Loaded styles */
-    .loaded #loader-wrapper {
+#loader-wrapper .loader-section {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: #222;
+    z-index: 1000;
+}
+/* Loaded styles */
+.loaded #loader-wrapper {
     -webkit-transition: opacity 3s ease-in-out;
     -moz-transition: opacity 3s ease-in-out;
     -ms-transition: opacity 3s ease-in-out;
     -o-transition: opacity 3s ease-in-out;
-     opacity: 1;
+    opacity: 1;
 
 
-    }
-/*    .loaded #loader-wrapper .loader-section.section-right {
+}
+.loaded #loader {
+    opacity: 0;
+    -webkit-transition: all 1s ease-out;  /* Android 2.1+, Chrome 1-25, iOS 3.2-6.1, Safari 3.2-6  */
+    transition: all 1s ease-out;  /* Chrome 26, Firefox 16+, iOS 7+, IE 10+, Opera, Safari 6.1+  */
 
-    }*/
-    .loaded #loader {
-        opacity: 0;
-        -webkit-transition: all 1s ease-out;  /* Android 2.1+, Chrome 1-25, iOS 3.2-6.1, Safari 3.2-6  */
-                transition: all 1s ease-out;  /* Chrome 26, Firefox 16+, iOS 7+, IE 10+, Opera, Safari 6.1+  */
-
-    }
-    .loaded #loader-wrapper {
-        visibility: hidden;
-                -webkit-transition: all 3s ease-out;  /* Android 2.1+, Chrome 1-25, iOS 3.2-6.1, Safari 3.2-6  */
-                transition: all 3s ease-out;  /* Chrome 26, Firefox 16+, iOS 7+, IE 10+, Opera, Safari 6.1+  */
-    }
-
-
+}
+.loaded #loader-wrapper {
+    visibility: hidden;
+    -webkit-transition: all 3s ease-out;  /* Android 2.1+, Chrome 1-25, iOS 3.2-6.1, Safari 3.2-6  */
+    transition: all 3s ease-out;  /* Chrome 26, Firefox 16+, iOS 7+, IE 10+, Opera, Safari 6.1+  */
+}
 #container{
     width: 100%;
 }
 #skipPlayer{
 	position: absolute;
 	bottom:15%;
-	right: 50px;
+	right: 20%;
 	color:white;
-
 }
 #skipPlayer:hover{
 	color:gray;
@@ -154,7 +136,6 @@ a {
   color: white;
   text-decoration: none;
 }
-
 #skipPlayer a:hover {
   color: white;
 }
@@ -183,38 +164,11 @@ a {
     font-family: Arial, sans-serif;
     background: black;
 }
-/*.jp-stop{
-	position:absolute;
-}*/
-/*.jp-video-270p {
-    width: 100%;
-}*/
-/*.jp-title h1 {
-	font-size: 1em;
-	text-align: center;
-	color: #555;
-}*/
-/*.jp-video-play {
-    font-family: "FontAwesome";
-    position: absolute;
-    top: 45%;
-    left: 46%;
-}*/
-/*.jp-video-play a {
-    font-size: 2em;
-    color: rgba(255,255,255,.7);
-    display: inline-block;
-    width: 50px;
-    height: 50px;
-    line-height: 55px;
-    text-align: center;
-    background-color: rgba(0,0,0,.8);
-    border-radius: 5px;
-}*/
+
 .jp-interface {
     width:100%;
-/*    bottom:0;*/
-/*    position: absolute;*/
+    /*    bottom:0;*/
+    /*    position: absolute;*/
     background: #f34927;
     background: -moz-linear-gradient(top,  #f34927 0%, #dd3311 100%);
     background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#f34927), color-stop(100%,#dd3311));
@@ -227,7 +181,7 @@ a {
     -webkit-box-shadow: inset 0px 1px 0px 0px rgba(255, 255, 255, 0.1);
     box-shadow: inset 0px 1px 0px 0px rgba(255, 255, 255, 0.1); 
 }
- 
+
 .jp-interface a {
     color: #fff;
     text-shadow: 1px 1px 0 rgba(0,0,0,0.3);
@@ -249,17 +203,7 @@ a {
     height: 40px;
     display: inline-block;
     text-align: center;
-
 }
-/*.jp-mute,.jp-unmute {
-    position: absolute;
-    right: 85px;
-    top: 0;
-    width: 20px;
-    height: 40px;
-    display: inline-block;
-    line-height: 43px;
-}*/
 .jp-progress {
     background-color: #992E18;
     overflow: hidden;
@@ -274,23 +218,6 @@ a {
     height: 12px;
     background-color: #fff;
 }
-.jp-volume-bar {
-    position: absolute;
-    right: 40px;
-    top: 16px;
-    width: 45px;
-    height: 8px;
-    border-radius: 20px 20px 20px 20px;
-    -webkit-box-shadow: 0 1px 1px 0 rgba(0,0,0,0.1) inset;
-    box-shadow: 0 1px 1px 0 rgba(0,0,0,0.1) inset;
-    background-color: #992E18;
-    overflow: hidden;
-}
-.jp-volume-bar-value {
-    background-color: #fff;
-    height: 8px;
-    border-radius: 20px 20px 20px 20px;
-}
 .jp-current-time {
     color: #FFF;
     font-size: 12px;
@@ -300,16 +227,6 @@ a {
     top: 13px;
     text-shadow: 1px 1px 0 rgba(0,0,0,0.3);
 }
-
-.jp-video-full {
-    /* Rules for IE6 (full-screen) */
-    width:480px;
-    height:270px;
-    /* Rules for IE7 (full-screen) - Otherwise the relative container causes other page items that are not position:static (default) to appear over the video/gui. */
-    position:static !important; 
-    position:relative;
-}
-/* The z-index rule is defined in this manner to enable Popcorn plugins that add overlays to video area. EG. Subtitles. */
 .jp-play, .jp-pause{
     height: 40px;
     width: 65px;    
@@ -321,7 +238,7 @@ a {
 
 }
 .jp-play:hover, .jp-pause:hover {
-    background-color: rgba(0, 173, 239, 0.9);
+    background-color: #992E18;
 }
 #sample-textbox{
 	padding: 25px;
@@ -359,10 +276,10 @@ a {
     border-right: 7px solid white;
     border-left: 7px solid white;
     top: 11px;
-   	left: 21px;
+    left: 21px;
 }
 #play-icon{
-	    content: "";
+    content: "";
     display: block;
     position: absolute;
     top: 10.5px;
