@@ -40,7 +40,7 @@ function buildPlayer(){
         ready: function () {
           $(this).jPlayer("setMedia", {
             m4v: content[0].preload.video,
-          });
+          }).jPlayer("play");
         },
         swfPath: "/js",
         supplied: "m4v",
@@ -121,7 +121,6 @@ function buildBgMusic(){
 	// Create an audio element, and set it to autoplay, 
 	// and show the player when the page loads.
     var audio = $("<audio />", {
-      autoPlay : "autoplay",
       controls : "controls",
       loop: "loop"
     });
