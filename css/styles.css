@@ -29,6 +29,9 @@ body{
 a {
     text-decoration: none;
 }
+#container{
+    width: 100%;
+}
 #skipPlayer{
 	position: absolute;
 	bottom:15%;
