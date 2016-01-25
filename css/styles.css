@@ -31,6 +31,7 @@ a {
 }
 #container{
     width: 100%;
+    margin: 100px 100px;
 }
 #skipPlayer{
 	position: absolute;
