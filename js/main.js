@@ -52,9 +52,9 @@ function skipClick(){
 function transitVid(){
 	$( ".jp-video" ).fadeOut( "slow", function(){
 	if (navigator.appVersion.indexOf("MSIE 10") !== -1){
-    	$( "#jp_container_1" ).css({"width":"800px", "height":"575px","background":"none", "margin":"10px", "top":"150px", "left":"100px"});
-    	$("#sample-textbox").css({"top":"160px", "left":"950px"});
-    	$("#tos-button").css({"top":"610px", "left":"1240px"});
+    	// $( "#jp_container_1" ).css({"width":"800px", "height":"575px","background":"none", "margin":"10px", "top":"150px", "left":"100px"});
+    	// $("#sample-textbox").css({"top":"160px", "left":"950px"});
+    	// $("#tos-button").css({"top":"610px", "left":"1240px"});
 	}
 	else{
 		$( "#jp_container_1" ).css({"width":"800px", "height":"575px","background":"none", "margin":"10px", "top":"100px"});
