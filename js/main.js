@@ -1,13 +1,10 @@
 var content;
 var tosButton=false;
 $( document ).ready(function() {
-
 	setTimeout(function(){
         $('body').addClass('loaded');
     }, 1000);
-
 	buildPage();
-
 	$('#skipPlayer').hide();
 	$('#sample-textbox').hide();
 	$('#tos-button').hide();
@@ -22,15 +19,17 @@ function buildPage(){
 		content = json;
 		console.log(content);
 		console.log(content[0]);
+		$('title').text(content[0].preload.title);
 		$("html").css({"background": "url(" + content[0].preload.backgroundImg+ ") no-repeat center center fixed"});
 		$("#sample-textbox h1").text(content[0].intro.h1);
 		$("#sample-textbox p").text(content[0].intro.p);
 		$("#tos-button").text(content[0].ToS.button);
+		$('#skipPlayer a').text(content[0].preload.skip);
 		buildBgMusic();
 		buildPlayer();
 	});
+};
 
-};	
 function buildPlayer(){
       $("#jquery_jplayer_1").jPlayer({
         ready: function () {
@@ -53,11 +52,13 @@ function buildPlayer(){
         }
       });
 }
+
 function skipClick(){
 	$('#skipPlayer').click(function(){
 		transitVid();
 	});
 }
+
 function transitVid(){
 	$( ".jp-video" ).fadeOut( "slow", function(){
 	if (navigator.appVersion.indexOf("MSIE 10") !== -1){
@@ -77,6 +78,7 @@ function transitVid(){
     $(".jp-progress").hide();
     $('audio').trigger("play");
 }
+
 function repeat(){
 	$('.jp-play').click(function(){
 		$('audio').trigger("pause");
@@ -88,6 +90,7 @@ function repeat(){
 		$('#skipPlayer').delay(5000).fadeIn(1000);
 	});
 }
+
 function tosClicked(){
 	$('#tos-button').click(function(){
 		tosButton =!tosButton;
@@ -100,11 +103,10 @@ function tosClicked(){
 			$("#sample-textbox h1").html(content[0].intro.h1)
 			$("#sample-textbox p").html(content[0].intro.p);
 			$("#tos-button").html(content[0].intro.button);
-
 		}
-		
 	});
 }
+
 function buildBgMusic(){
 	    // Create an audio element, and set it to autoplay, 
    // and show the player when the page loads.
@@ -124,6 +126,7 @@ function buildBgMusic(){
     $('audio').prop("volume", 0.25);
     $('audio').hide();
 }
+
 function addSource(elem, path) {
 	$('<source />').attr('src', path).appendTo(elem);
 }
