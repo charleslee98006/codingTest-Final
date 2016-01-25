@@ -56,7 +56,7 @@ function transitVid(){
     	$("#sample-textbox").css({"top":"40%", "left":"400px"});
 	}
 	else{
-		$( "#jp_container_1" ).css({"width":"800px", "height":"575px","background":"none", "margin":"10px", "top":"200px", "left": "700px"});
+		$( "#jp_container_1" ).css({"width":"800px", "height":"575px","background":"none", "margin":"10px", "top":"200px", "left": "900px"});
 	}
 	});
 	$('#skipPlayer').fadeOut(500);
