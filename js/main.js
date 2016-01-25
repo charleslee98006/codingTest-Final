@@ -53,7 +53,8 @@ function transitVid(){
 	$( ".jp-video" ).fadeOut( "slow", function(){
 	if (navigator.appVersion.indexOf("MSIE 10") !== -1){
     	$( "#jp_container_1" ).css({"width":"800px", "height":"575px","background":"none", "margin":"10px", "top":"200px", "left":"100px"});
-    	$("#sample-textbox").css({"top":"210px", "left":"900px"});
+    	$("#sample-textbox").css({"top":"210px", "left":"950px"});
+    	$("#tos-button").css({"top":"210px", "left":"950px"});
 	}
 	else{
 		$( "#jp_container_1" ).css({"width":"800px", "height":"575px","background":"none", "margin":"10px", "top":"100px"});
