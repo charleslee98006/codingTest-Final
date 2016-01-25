@@ -71,7 +71,7 @@ function transitVid(){
 function repeat(){
 	$('.jp-play').click(function(){
 		$('audio').trigger("pause");
-		$( "#jp_container_1" ).css({"width":"100%", "height":"100%","background":"black", "margin":"0 auto", "top":"0", "left":"0"});
+		$( "#container" ).css({"width":"100%", "height":"100%","background":"black", "margin":"0 auto", "top":"0", "left":"0"});
 		$(".jp-progress").show();
 		$('#sample-textbox').fadeOut(500);
 		$('#sample-textbox').hide();
