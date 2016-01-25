@@ -30,6 +30,7 @@ function buildPage(){
 		$("#skipPlayer a").text(content[0].preload.skip);
 		buildBgMusic();
 		buildPlayer();
+		buildFlashError();
 	});
 };
 
@@ -39,7 +40,7 @@ function buildPlayer(){
         ready: function () {
           $(this).jPlayer("setMedia", {
             m4v: content[0].preload.video,
-          }).jPlayer("play");
+          });
         },
         swfPath: "/js",
         supplied: "m4v",
