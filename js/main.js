@@ -51,7 +51,7 @@ function skipClick(){
 }
 function transitVid(){
 	$( ".jp-video" ).fadeOut( "slow", function(){
-		$( "#jp_container_1" ).css({"width":"800px", "height":"575px","background":"none", "margin":"10px", "top":"100px"});
+		$( "#jp_container_1" ).css({"width":"800px", "height":"575px","background":"none", "margin":"10px", "top":"100px", "left": "100px"});
 	});
 	$('#skipPlayer').fadeOut(500);
 	$('#skipPlayer').hide();
@@ -64,7 +64,7 @@ function transitVid(){
 function repeat(){
 	$('.jp-play').click(function(){
 		$('audio').trigger("pause");
-		$( "#jp_container_1" ).css({"width":"100%", "height":"100%","background":"black", "margin":"0 auto", "top":"0"});
+		$( "#jp_container_1" ).css({"width":"100%", "height":"100%","background":"black", "margin":"0 auto", "top":"0", "left":"0"});
 		$(".jp-progress").show();
 		$('#sample-textbox').fadeOut(500);
 		$('#sample-textbox').hide();
